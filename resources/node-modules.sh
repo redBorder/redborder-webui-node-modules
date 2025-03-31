@@ -1,0 +1,1 @@
+export PUPPETEER_CACHE_DIR=/var/www/rb-rails/.cache/puppeteer
