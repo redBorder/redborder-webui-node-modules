@@ -1,6 +1,7 @@
 %global debug_package %{nil}
 %global puppeteer_version %{__puppeteer_version}
 %global chromium_version %{__chromium_version}
+%global save_svg_as_png_version %{__save_svg_as_png_version}
 
 Name:    redborder-webui-node-modules
 Version: %{__version}
@@ -26,6 +27,7 @@ to allow custom browser management.
 %build
 npm init -y
 npm install puppeteer@%{puppeteer_version}
+npm install save-svg-as-png@%{save_svg_as_png_version}
 
 wget --no-check-certificate \
   https://storage.googleapis.com/chromium-browser-snapshots/Linux_x64/%{chromium_version}/chrome-linux.zip \

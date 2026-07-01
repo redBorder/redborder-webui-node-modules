@@ -13,6 +13,8 @@ PUPPETEER_VERSION?= 19.5.2
 
 CHROMIUM_VERSION?= 1069273
 
+SAVE_SVG_AS_PNG_VERSION?= 1.4.17
+
 all: rpm
 
 SOURCES:
@@ -34,6 +36,7 @@ srpm: build_prepare
 		--define "__release $(BUILD_NUMBER)" \
 		--define "__puppeteer_version $(PUPPETEER_VERSION)" \
 		--define "__chromium_version $(CHROMIUM_VERSION)" \
+		--define "__save_svg_as_png_version $(SAVE_SVG_AS_PNG_VERSION)" \
 		--resultdir=$(RESULT_DIR) \
 		--buildsrpm \
 		--spec=${PACKAGE_NAME}.spec \
@@ -48,6 +51,7 @@ rpm: srpm
 		--define "__release $(BUILD_NUMBER)"\
 		--define "__puppeteer_version $(PUPPETEER_VERSION)" \
 		--define "__chromium_version $(CHROMIUM_VERSION)" \
+		--define "__save_svg_as_png_version $(SAVE_SVG_AS_PNG_VERSION)" \
 		--resultdir=$(RESULT_DIR) \
 		--rebuild $(RESULT_DIR)/$(PACKAGE_NAME)*.src.rpm
 	@echo "======= Binary RPMs now available in $(RESULT_DIR) ======="
